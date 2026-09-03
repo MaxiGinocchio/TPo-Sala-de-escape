@@ -43,3 +43,18 @@ Si agota todos los disparos sin encontrar la flota completa, habrá perdido el d
 El equipo deberá definir el comportamiento del juego ante una derrota y aplicarlo
 consistentemente."""
 
+def sala2():
+    print("""
+    ============================================================
+                            SALA 2
+                         BATALLA NAVAL
+    ============================================================
+    
+    
+    
+
+    ============================================================
+                   COMIENZA LA BATALLA NAVAL
+    ============================================================
+    """)
+
