@@ -29,9 +29,8 @@ def cambiar_contraseña(contraseña_encriptada):
         nueva_contraseña = validar_contraseña(nueva_contraseña, contraseña_encriptada)
         if nueva_contraseña:
             return nueva_contraseña
-
-
-def validar_contraseña(contraseña, contraseña_encriptada):
+            
+###intentar hacer modulacion para SEGURIDAD
 def validar_contraseña(contraseña, contraseña_encriptada):
     if contraseña != contraseña_encriptada:
         print("La nueva contraseña no puede ser igual a la anterior.")
@@ -51,7 +50,7 @@ def validar_contraseña(contraseña, contraseña_encriptada):
         print("Contraseña cambiada exitosamente.")
         contraseña = encriptar(contraseña)
         return contraseña
-
+###-----------------------------------------------
 def main():
     print("----------------------------------------------------------------")
     print("Bienvenido al juego Escape de prisión de Alcatraz\n")
