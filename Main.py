@@ -22,33 +22,34 @@ def encriptar(contraseña, corrimiento=2):
 
 
 def cambiar_contraseña(contraseña_encriptada):
-    """
-Antes de realizar el cambio, el programa deberá solicitar la contraseña actual y verificar que
-sea correcta."""
-
     while True:
         contraseña_actual = input("Ingrese su contraseña actual: ")
         contraseña_actual = encriptar(contraseña_actual)
         nueva_contraseña = input("Ingrese su nueva contraseña: ")
-        
-        if nueva_contraseña != contraseña_encriptada:
-            print("La nueva contraseña no puede ser igual a la anterior.")
-        if len(nueva_contraseña) < 8:
-            print("La nueva contraseña debe tener al menos 8 caracteres.")
-        if not any(i.isdigit() for i in nueva_contraseña):
-            print("La nueva contraseña debe contener al menos un número.")
-        if not any(i.isupper() for i in nueva_contraseña):
-            print("La nueva contraseña debe contener al menos una letra mayúscula.")
-        if not any(i.islower() for i in nueva_contraseña):
-            print("La nueva contraseña debe contener al menos una letra minúscula.")
-        if not any(i in "!@#$%^&*()-_=+[{]}\|;:'\",<.>/?`~" for i in nueva_contraseña):
-            print("La nueva contraseña debe contener al menos un carácter especial.")
-        if any(i.isspace() for i in nueva_contraseña):
-            print("La nueva contraseña no puede contener espacios.")
-        else:
-            print("Contraseña cambiada exitosamente.")
-            nueva_contraseña = encriptar(nueva_contraseña)
+        nueva_contraseña = validar_contraseña(nueva_contraseña, contraseña_encriptada)
+        if nueva_contraseña:
             return nueva_contraseña
+
+
+def validar_contraseña(contraseña, contraseña_encriptada):
+    if contraseña != contraseña_encriptada:
+                print("La nueva contraseña no puede ser igual a la anterior.")
+            if len(contraseña) < 8:
+                print("La nueva contraseña debe tener al menos 8 caracteres.")
+            if not any(i.isdigit() for i in contraseña):
+                print("La nueva contraseña debe contener al menos un número.")
+            if not any(i.isupper() for i in contraseña):
+                print("La nueva contraseña debe contener al menos una letra mayúscula.")
+            if not any(i.islower() for i in contraseña):
+                print("La nueva contraseña debe contener al menos una letra minúscula.")
+            if not any(i in "!@#$%^&*()-_=+[{]}\|;:'\",<.>/?`~" for i in contraseña):
+                print("La nueva contraseña debe contener al menos un carácter especial.")
+            if any(i.isspace() for i in contraseña):
+                print("La nueva contraseña no puede contener espacios.")
+            else:
+                print("Contraseña cambiada exitosamente.")
+                contraseña = encriptar(contraseña)
+                return contraseña
 
 def main():
     print("----------------------------------------------------------------")
