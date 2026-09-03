@@ -1,3 +1,5 @@
+### Garcia Tomas - Saponaro Ignacio
+
 import instrucciones
 while True:
     print(" elija alguna de estas opciones : 0-Instrucciones / 1-Jugar / 2-cambiar_contraseña / 3-cerrar_sesion")
