@@ -113,7 +113,6 @@ while intentos > 0 and "_ " in palabra_oculta:
     print("Palabra:", palabra_oculta)
     print("Letras utilizadas:", letras_usadas)
 
-
 if "_ " not in palabra_oculta:
     print("¡Ganaste!")
     print("La palabra era:", palabra_secreta)
