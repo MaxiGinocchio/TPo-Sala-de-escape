@@ -1,8 +1,8 @@
-def inicio_sesion(usuario_inicial, contraseña_inicial):
+def inicio_sesion(usuario_inicial, contraseña_encriptada):
     while True:
         usuario_ingresado = input("Ingrese su usuario: ")
         contraseña_ingresada = input("Ingrese su contraseña: ")
-        contraseña_ingresada = comparar_contraseña(contraseña_ingresada, contraseña_inicial)
+        contraseña_ingresada = comparar_contraseña(contraseña_ingresada, contraseña_encriptada)
 
         if usuario_ingresado == usuario_inicial and contraseña_ingresada == True:
             print("Inicio de sesión exitoso. ¡Bienvenido al juego!\n")
@@ -77,8 +77,3 @@ def validar_contraseña(contraseña, contraseña_encriptada):
         print("\nContraseña cambiada exitosamente.")
         contraseña = encriptar(contraseña)
         return contraseña
-
-
-usuario_inicial = "jugador1"
-contraseña_encriptada = "W6FGncdu?" #Contraseña encriptada con un corrimiento de 2 caracteres (U4DElabs=)
-inicio_sesion(usuario_inicial, contraseña_encriptada)
