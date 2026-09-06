@@ -4,8 +4,8 @@ from random import choice
 def sala_1():
     print("""
 ============================================================
-                       SALA 1
-                 EL MENSAJE OCULTO
+                         SALA 1
+                    EL MENSAJE OCULTO
 ============================================================
 
 Después de varios meses encerrado en Alcatraz, comenzaste a observar
@@ -34,89 +34,103 @@ Si ingresás una letra incorrecta, perderás uno de tus intentos.
 Las letras repetidas o los ingresos inválidos no consumirán intentos.
 
 Si lográs completar la palabra antes de quedarte sin intentos,
-descubrirás cómo abrir la salida de tu celda y podrás continuar
+descubrirás cómo abrir la puerta de tu celda y podrás continuar
 con tu fuga.
 
 Si agotás todos tus intentos, los guardias descubrirán tu plan
 y el intento de escape habrá terminado.
 
 ============================================================
-                 COMIENZA EL AHORCADO
+                COMIENZA EL AHORCADO
 ============================================================
 """)
-while True:
-    seguir = input("¿Comenzamos? Y / N: ")
+  
+    palabras = [
+        "CELDA",
+        "PRISION",
+        "GUARDIA",
+        "ESCAPE",
+        "ALCATRAZ",
+        "REJA",
+        "LLAVE",
+        "TUNEL",
+        "PATIO",
+        "ALARMA",
+        "CELULAR",
+        "CALABOZO",
+        "CANDADO",
+        "SOTANO",
+        "VIGILANCIA",
+        "LIBERTAD",
+        "PASADIZO",
+        "ESPOSAS",
+        "MAPA",
+        "SIRENA"
+    ]
 
-    if seguir == "Y":
-        print("inicia")
-        break
-    else:
-        break  
-                 
-                 
+    palabra_secreta = choice(palabras)
 
-palabras = [
-    "CELDA",
-    "PRISION",
-    "GUARDIA",
-    "ESCAPE",
-    "ALCATRAZ",
-    "REJA",
-    "LLAVE",
-    "TUNEL",
-    "PATIO",
-    "ALARMA"
-]
+    palabra_oculta = "_ " * len(palabra_secreta)
+    letra_en_palabra = []
 
-palabra_secreta = choice(palabras)
+    intentos = 4
+    letras_usadas = []
 
-palabra_oculta = "_ " * len(palabra_secreta)
-letra_en_palabra = []
+    while intentos > 0 and "_ " in palabra_oculta:
 
-intentos = 4
-letras_usadas = []
+        print("\nPalabra:", palabra_oculta)
+        letra = input("Ingrese una letra para completar la palabra: ").upper()
 
-while intentos > 0 and "_ " in palabra_oculta:
+        # Validar que sea una sola letra
+        if len(letra) != 1 or not letra.isalpha():
+            print("Debe ingresar solamente una letra.")
+            continue
 
-    letra = input("Ingrese una letra para completar la palabra: ").upper()
+        # Validar que no esté repetida
+        if letra in letras_usadas:
+            print("Esa letra ya fue ingresada.")
+            continue
 
-    # Validar que sea una sola letra
-    if len(letra) != 1 or not letra.isalpha():
-        print("Debe ingresar solamente una letra.")
-        continue
+        letras_usadas.append(letra)
 
-    # Validar que no esté repetida
-    if letra in letras_usadas:
-        print("Esa letra ya fue ingresada.")
-        continue
+        # Si la letra está en la palabra
+        if letra in palabra_secreta:
+            print("¡Letra correcta!")
 
-    letras_usadas.append(letra)
+            palabra_oculta = ""
 
-    # Si la letra está en la palabra
-    if letra in palabra_secreta:
-        print("¡Letra correcta!")
+            for letra_palabra in palabra_secreta:
+                if letra_palabra in letras_usadas:
+                    palabra_oculta += letra_palabra + " "
+                else:
+                    palabra_oculta += "_ "
 
-        palabra_oculta = ""
+        # Si la letra NO está
+        else:
+            intentos -= 1
+            print("Letra incorrecta.")
 
-        for letra_palabra in palabra_secreta:
-            if letra_palabra in letras_usadas:
-                palabra_oculta += letra_palabra + " "
-            else:
-                palabra_oculta += "_ "
-
-    # Si la letra NO está
-    else:
-        intentos -= 1
-        print("Letra incorrecta.")
         print("Intentos restantes:", intentos)
+        print("Letras utilizadas:", ", ".join(letras_usadas))
 
-    print("Palabra:", palabra_oculta)
-    print("Letras utilizadas:", letras_usadas)
 
-if "_ " not in palabra_oculta:
-    print("¡Ganaste!")
-    print("La palabra era:", palabra_secreta)
-else:
-    print("Perdiste.")
-    print("La palabra era:", palabra_secreta)
-    
+    if "_ " not in palabra_oculta:
+        print("""
+============================================================
+Encontraste la palabra oculta. Ahora podés abrir la puerta
+de tu celda y salir de la prisión.
+        
+                   ¡CONTINÚA CON TU FUGA!
+============================================================""")
+        return True
+        
+    else:
+        print("""
+============================================================
+Se te acabaron los intentos. Los guardias te han atrapado.
+        
+                        GAME OVER
+============================================================""")
+
+if __name__ == "__main__":
+    sala_1()
