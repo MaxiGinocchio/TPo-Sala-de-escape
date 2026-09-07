@@ -63,29 +63,30 @@ def pedir_coordenada(mensaje, maximo):
 
 
 def sala2():
+    def sala2():
     print("""
-    ============================================================
-                            SALA 2
-                         BATALLA NAVAL
-    ============================================================
+============================================================
+                       SALA 2
+                    BATALLA NAVAL
+============================================================
 
-    Lograste salir de tu celda y llegaste hasta el muelle de
-    la prisión donde hay una lancha y un cañón. Sabés que en 
-    el mar hay tres botes policiales buscandote.
+Lograste salir de tu celda y llegaste hasta el muelle de
+la prisión donde hay una lancha y un cañón. Sabés que en 
+el mar hay tres botes policiales buscandote.
 
-    La niebla no te deja ver nada, asi que vas a tener que buscarlos
-    a ciegas sobre el sector, dividido en una cuadricula de 5 x 5.
+La niebla no te deja ver nada, asi que vas a tener que buscarlos
+a ciegas sobre el sector, dividido en una cuadricula de 5 x 5.
 
-    En cada turno vas a elegir una fila y una columna. Si acertas,
-    encontraste uno de los botes. Si no, solamente encontras agua.
+En cada turno vas a elegir una fila y una columna. Si acertas,
+encontraste uno de los botes. Si no, solamente encontras agua.
 
-    Tenes """ + str(DISPAROS_INICIALES) + """ balas de cañón para 
-    encontrar los 3 botes. Si se te acaban, los guardias van a 
-    llegar antes de que puedas escapar.
+Tenes """ + str(DISPAROS_INICIALES) + """ balas de cañón para 
+encontrar los 3 botes. Si se te acaban, los guardias van a 
+llegar antes de que puedas escapar.
 
-    ============================================================
-                   COMIENZA LA BATALLA NAVAL
-    ============================================================
+============================================================
+                COMIENZA LA BATALLA NAVAL
+============================================================
     """)
 
     tablero = crear_tablero()
