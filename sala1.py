@@ -1,7 +1,7 @@
 from random import choice
 ### Garcia Tomas - Saponaro Ignacio
 
-def sala_1():
+def sala1():
     print("""
 ============================================================
                          SALA 1
@@ -133,4 +133,4 @@ Se te acabaron los intentos. Los guardias te han atrapado.
 ============================================================""")
 
 if __name__ == "__main__":
-    sala_1()
+    sala1()
